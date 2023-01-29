@@ -20,7 +20,7 @@ const AddUser = () => {
       timer: 1500
     },
 
-      fetch('https://solutya-server1.herokuapp.com/addUser', {
+      fetch('http://localhost:5000/billing', {
         method: "POST",
         headers: {
           "content-type": "application/json"

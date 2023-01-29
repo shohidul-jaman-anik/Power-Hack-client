@@ -17,7 +17,7 @@ const UpdateUser = () => {
             showConfirmButton: false,
             timer: 1500
         },
-            fetch(`http://localhost:5000/update-billing/${id}`, {
+            fetch(`http://localhost:5000/billing/${id}`, {
                 method: "PUT",
                 headers: {
                     "content-type": "application/json"
