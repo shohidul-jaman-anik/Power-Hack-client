@@ -4,7 +4,8 @@ import Swal from 'sweetalert2';
 
 const AllUser = () => {
 
-  const [product, setProduct] = useState([])
+  // const [product, setProduct] = useState([])
+  const [searchText, setSearchText] = useState('')
   const [searchResult, setSearchResult] = useState([]);
 
   // console.log(user, "bal")
@@ -15,9 +16,11 @@ const AllUser = () => {
       .then(res => res.json())
       .then(data => {
         // console.log(data, 'data')
-        setProduct(data)
+        const match = data.filter(p => p.name.includes(searchText));
+        setSearchResult(match);
+        // setProduct(data)
       })
-  }, [])
+  }, [searchText])
 
   const handleDelete = (id) => {
     console.log(id)
@@ -40,8 +43,8 @@ const AllUser = () => {
             .then(res => res.json())
             .then(result => {
               console.log(result, "bangla")
-              const remaining = product.filter(d => d._id !== id)
-              setProduct(remaining)
+              const remaining = searchResult.filter(d => d._id !== id)
+              setSearchResult(remaining)
             })
         }
         Swal.fire(
@@ -62,9 +65,16 @@ const AllUser = () => {
   const addProduct = (id) => {
     navigate(`/add-billing`)
   }
-  const handleSearch = event => {
 
+  const handleSearch = event => {
+    setSearchText(event.target.value);
   }
+  // const handleSearch = event => {
+  //   const searchText = event.target.value;
+  //   const match = product.filter(p => p.name.includes(searchText));
+  //   setSearchResult(match);
+  // }
+
   return (
     <div>
       <div class="mt-8 ">
@@ -89,7 +99,7 @@ const AllUser = () => {
           </thead>
 
           <tbody>
-            {product.map((u, index) =>
+            {searchResult.map((u, index) =>
 
               <tr>
                 <th className='text-center'>{index + 1}</th>

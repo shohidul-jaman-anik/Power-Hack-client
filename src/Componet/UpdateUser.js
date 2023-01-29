@@ -78,7 +78,7 @@ const UpdateUser = () => {
 
                     <div className=" form-control mt-5 border-0">
                         <label className="label">
-                            <span className="label-text">Price</span>
+                            <span className="label-text">Phone</span>
                         </label>
                         <input
                             type="number"
@@ -91,7 +91,7 @@ const UpdateUser = () => {
                             {errors.phone?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.phone.message}</span>}
                         </label>
                     </div>
-                    
+
                     <div className=" form-control mt-5 border-0">
                         <label className="label">
                             <span className="label-text">Price</span>
