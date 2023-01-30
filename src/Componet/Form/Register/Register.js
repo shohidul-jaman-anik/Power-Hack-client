@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const SignUp = () => {
 
@@ -8,7 +9,20 @@ const SignUp = () => {
 
     const onSubmit = async (data) => {
 
+        fetch('http://localhost:5000/registration', {
+            method: "POST",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+          })
+            .then(res => res.json())
+            .then(result => {
+              console.log(result)
+              toast(result.message)
+            })
     }
+
 
     return (
         <div className='flex h-screen  justify-center items-center'>

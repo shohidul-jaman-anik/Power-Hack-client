@@ -1,23 +1,11 @@
-import { signOut } from 'firebase/auth';
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
-import auth from '../../../firebase.init';
-import Loading from '../../Hook/Loading/Loading';
-import useAdmin from '../../Hook/useAdmin/useAdmin';
 
 
 const Navbar = () => {
 
-    const [user, loading, error] = useAuthState(auth);
-    const [admin] = useAdmin(user)
-    const logout = () => {
-        signOut(auth);
-        localStorage.removeItem('accessTokenSecret')
-    };
-    if (loading) {
-        return <Loading></Loading>
-    }
+   
+   
     return (
 
         <nav class="bg-gray-800">
@@ -45,18 +33,18 @@ const Navbar = () => {
 
                     <p class="mr-4">Paid Total : </p>
 
-                    <h6>{user ?
-                        <button onClick={logout}
+                    <h6>
+                        <button 
                             className="btn btn-sm">
                             Log Out
                         </button>
                         : <button className="btn btn-sm">
                             <Link to="/login" >Login</Link>
-                        </button>}
+                        </button>
                     </h6>
 
                     <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                        
+
 
 
                         <div class="relative ">

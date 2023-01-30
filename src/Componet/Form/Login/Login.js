@@ -11,8 +11,18 @@ const Login = () => {
    
 
     const onSubmit = (data) => {
-        
-
+        fetch('http://localhost:5000/login', {
+            method: "POST",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+          })
+            .then(res => res.json())
+            .then(result => {
+              console.log(result)
+              toast(result.message)
+            })
     };
 
     return (

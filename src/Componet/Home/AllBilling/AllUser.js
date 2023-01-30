@@ -17,7 +17,7 @@ const AllUser = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`http://localhost:5000/billing?page=${page}&size=${size}`)
+    fetch(`http://localhost:5000/billing-list?page=${page}&size=${size}`)
       .then(res => res.json())
       .then(result => {
         // console.log(data, 'dataaaaaaaaaaaaaa')
@@ -54,7 +54,7 @@ const AllUser = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         {
-          const url = `http://localhost:5000/billing/${id}`
+          const url = `http://localhost:5000/delete-billing/${id}`
           fetch(url, {
             method: "DELETE"
           })

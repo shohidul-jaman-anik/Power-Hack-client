@@ -8,6 +8,8 @@ import AllUser from './Componet/Home/AllBilling/AllUser';
 import Navbar from './Componet/Home/Navbar/Navbar';
 import UpdateUser from './Componet/UpdateUser';
 // import Register from './Componet/Form/Register/Register';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
 
@@ -21,7 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path='/register' element={<SignUp></SignUp>}></Route>
       </Routes>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
     </div>
   );
 }
