@@ -1,5 +1,8 @@
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: [
+  "./src/**/*.{html,js}",
+  'node_modules/preline/dist/*.js'
+],
   theme: {
     extend: {},
   },
@@ -18,5 +21,5 @@ module.exports = {
       "cupcake",
     ],
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"),require('preline/plugin')],
 }
