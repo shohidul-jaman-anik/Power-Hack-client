@@ -8,8 +8,9 @@ import AllUser from './Componet/Home/AllBilling/AllUser';
 import Navbar from './Componet/Home/Navbar/Navbar';
 import UpdateUser from './Componet/UpdateUser';
 // import Register from './Componet/Form/Register/Register';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import VideoPlayer from './Componet/VideoPlayer/VideoPlayer';
 
 function App() {
 
@@ -17,14 +18,17 @@ function App() {
     <div>
       <Navbar></Navbar>
       <Routes>
+        {/* <Route element={<ProtectedRoute />}> */}
         <Route path="/" element={<AllUser></AllUser>} />
         <Route path="/add-billing" element={<AddUser></AddUser>} />
         <Route path="/updateUser/:id" element={<UpdateUser></UpdateUser>} />
+        {/* </Route> */}
+        <Route path="/video" element={<VideoPlayer />} />
         <Route path="/login" element={<Login />} />
         <Route path='/register' element={<SignUp></SignUp>}></Route>
       </Routes>
       <ToastContainer />
-    </div>
+    </div >
   );
 }
 
